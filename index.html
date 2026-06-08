@@ -107,15 +107,6 @@
       gap: 18px;
     }
 
-    .nav-phone {
-      text-decoration: none;
-      color: var(--ov-dark);
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-    }
-
-    .nav-phone:hover { color: var(--ov-gold); }
 
     .nav-cta,
     .btn-primary,
@@ -738,31 +729,6 @@
       flex: 0 0 auto;
     }
 
-    .phone-block {
-      margin-top: 44px;
-      padding-top: 30px;
-      border-top: 1px solid var(--ov-rule-dark);
-    }
-
-    .phone-label {
-      margin-bottom: 8px;
-      color: var(--ov-muted);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .phone-number {
-      color: var(--ov-cream);
-      text-decoration: none;
-      font-family: var(--ov-serif);
-      font-size: 2rem;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .phone-number:hover { color: var(--ov-gold); }
 
     .form-right {
       padding: 86px 80px 86px 64px;
@@ -936,25 +902,6 @@
       line-height: 1.5;
     }
 
-    .sticky-mobile-call {
-      display: none;
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      z-index: 200;
-      min-height: 54px;
-      align-items: center;
-      justify-content: center;
-      background: var(--ov-gold);
-      color: var(--ov-black);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
-    }
 
     .reveal {
       opacity: 0;
@@ -990,7 +937,6 @@
     }
 
     @media (max-width: 720px) {
-      body { padding-bottom: 76px; }
       .site-nav { padding: 15px 20px; }
       .nav-logo { font-size: 1rem; }
       .nav-phone { display: none; }
@@ -1073,7 +1019,6 @@
         flex-direction: column;
         align-items: flex-start;
       }
-      .sticky-mobile-call { display: flex; }
     }
   </style>
 </head>
@@ -1086,7 +1031,6 @@
         <small>And Builders</small>
       </a>
       <div class="nav-actions">
-        <a class="nav-phone" href="tel:8664245184">866.424.5184</a>
         <a class="nav-cta" href="#consult">Free Consultation</a>
       </div>
     </nav>
@@ -1102,7 +1046,6 @@
           </p>
           <div class="hero-actions">
             <a class="btn-primary" href="#consult">Schedule a Free Rebuild Consultation</a>
-            <a class="btn-secondary" href="tel:8664245184">Call Shahar Directly</a>
           </div>
         </div>
 
@@ -1406,10 +1349,6 @@
             <li>No pressure, no obligation</li>
           </ul>
 
-          <div class="phone-block">
-            <p class="phone-label">Prefer to call?</p>
-            <a class="phone-number" href="tel:8664245184">866.424.5184</a>
-          </div>
         </div>
 
         <div class="form-right">
@@ -1444,7 +1383,7 @@
 
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="(310) 000-0000" autocomplete="tel" required />
+                  <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" required />
                 </div>
 
                 <div class="form-group">
@@ -1497,12 +1436,10 @@
         <li><a href="#planning">Planning</a></li>
         <li><a href="#why">Why Overland</a></li>
         <li><a href="#consult">Free Consultation</a></li>
-        <li><a href="tel:8664245184">866.424.5184</a></li>
       </ul>
       <span class="footer-copy">© 2026 Overland Remodeling and Builders.<br>CA Contractor License #921446 · Licensed &amp; Insured</span>
     </footer>
 
-    <a class="sticky-mobile-call" href="tel:8664245184">Call Shahar Directly</a>
   </div>
 
   <script>
@@ -1567,8 +1504,15 @@
             body: encodeFormData(form)
           });
 
-          if (!response.ok) {
-            throw new Error('Form submission failed');
+          let result = {};
+          try {
+            result = await response.json();
+          } catch (e) {
+            result = {};
+          }
+
+          if (!response.ok || result.ok === false) {
+            throw new Error(result.message || 'Form submission failed');
           }
 
           if (typeof gtag === 'function') {
@@ -1583,7 +1527,7 @@
           formMessage.textContent = 'Thank you. Your information was sent successfully. We will be in touch within one business day.';
           formMessage.classList.add('visible');
         } catch (error) {
-          formMessage.textContent = 'Something went wrong. Please call us directly at 866.424.5184 or try submitting the form again.';
+          formMessage.textContent = error.message || 'Something went wrong. Please try submitting the form again.';
           formMessage.classList.add('visible', 'error');
         } finally {
           submitButton.disabled = false;
