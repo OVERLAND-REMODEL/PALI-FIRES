@@ -7,6 +7,7 @@
   <title>Pacific Palisades Fire Rebuild Contractor | Overland Remodeling and Builders</title>
   <meta name="description" content="Owner-led fire rebuild contractor for Pacific Palisades homeowners. Design-build support for planning, permits, construction, rebuild estimates, and full home reconstruction." />
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://overlandrandb.com/" />
   <meta property="og:title" content="Pacific Palisades Fire Rebuild Contractor | Overland Remodeling and Builders" />
   <meta property="og:description" content="Rebuild with confidence with an owner-led design-build team serving Pacific Palisades homeowners." />
   <meta property="og:type" content="website" />
@@ -218,6 +219,19 @@
       flex-wrap: wrap;
     }
 
+    .hero-trust-line {
+      max-width: 560px;
+      margin-top: 14px;
+      color: #7a736b;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .hero-trust-line strong {
+      color: var(--ov-black);
+      font-weight: 600;
+    }
+
     .btn-primary {
       min-height: 54px;
       padding: 16px 32px;
@@ -333,6 +347,91 @@
       font-size: 0.77rem;
       line-height: 1.45;
       letter-spacing: 0.05em;
+    }
+
+
+
+    .inline-cta {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 26px;
+      align-items: center;
+      padding: 32px 34px;
+      background: var(--ov-black);
+      color: var(--ov-cream);
+      border-left: 3px solid var(--ov-gold);
+    }
+
+    .inline-cta-label {
+      margin-bottom: 8px;
+      color: var(--ov-gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .inline-cta h3 {
+      margin-bottom: 8px;
+      color: var(--ov-cream);
+      font-size: clamp(1.65rem, 2.3vw, 2.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .inline-cta p {
+      max-width: 720px;
+      color: var(--ov-soft);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .inline-cta .btn-primary {
+      background: var(--ov-gold);
+      color: var(--ov-black);
+      white-space: nowrap;
+    }
+
+    .inline-cta .btn-primary:hover { background: #C9A24D; }
+
+    .testimonial-section { background: var(--ov-warm); }
+
+    .testimonial-card {
+      margin-top: 46px;
+      padding: 46px;
+      background: var(--ov-white);
+      border-left: 3px solid var(--ov-gold);
+      box-shadow: 0 18px 44px rgba(24, 26, 27, 0.06);
+    }
+
+    .testimonial-card blockquote {
+      color: #5f5a54;
+      font-size: clamp(1.02rem, 1.2vw, 1.16rem);
+      line-height: 1.78;
+      letter-spacing: 0;
+    }
+
+    .testimonial-card blockquote strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ov-black);
+      font-family: var(--ov-serif);
+      font-size: clamp(1.75rem, 2.6vw, 2.65rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .testimonial-card cite {
+      display: block;
+      margin-top: 24px;
+      color: var(--ov-gold);
+      font-size: 0.78rem;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .trust-bar {
@@ -799,11 +898,14 @@
     }
 
     .bot-field {
-      position: absolute;
-      left: -5000px;
-      height: 1px;
-      width: 1px;
-      overflow: hidden;
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0;
+      pointer-events: none;
     }
 
     .form-submit {
@@ -929,7 +1031,8 @@
       .why-layout,
       .owner-card,
       .form-section,
-      .scope-layout { grid-template-columns: 1fr; }
+      .scope-layout,
+      .inline-cta { grid-template-columns: 1fr; }
       .why-panel { position: static; }
       .form-left,
       .form-right { padding: 70px 42px; }
@@ -948,6 +1051,7 @@
       h1 { font-size: clamp(3rem, 17vw, 4.6rem); }
       .hero-subtitle { font-size: 1.42rem; }
       .hero-copy { font-size: 0.98rem; }
+      .hero-trust-line { font-size: 0.84rem; }
       .hero-actions {
         align-items: stretch;
         flex-direction: column;
@@ -1000,6 +1104,12 @@
       .stage-grid,
       .roadmap-grid,
       .local-grid { grid-template-columns: 1fr; }
+      .inline-cta {
+        padding: 30px 24px;
+        text-align: left;
+      }
+      .inline-cta .btn-primary { width: 100%; }
+      .testimonial-card { padding: 34px 24px; }
       .roadmap-card,
       .local-card,
       .owner-aside,
@@ -1039,14 +1149,15 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
           <p class="eyebrow">Pacific Palisades Fire Rebuild Contractor</p>
-          <h1 id="hero-title">Rebuild with <em>confidence.</em></h1>
-          <p class="hero-subtitle">A clear path forward after the Palisades Fire — from planning and permits to construction and final walkthrough.</p>
+          <h1 id="hero-title">Pacific Palisades Fire Rebuild <em>Contractor.</em></h1>
+          <p class="hero-subtitle">Rebuild with confidence — from planning and permits to construction and final walkthrough.</p>
           <p class="hero-copy">
-            Overland Remodeling and Builders helps Pacific Palisades homeowners move from uncertainty to a practical rebuild plan. Work directly with Shahar and an owner-led design-build team that can help organize the next steps, coordinate planning, support permitting, guide finish decisions, and manage construction with personal oversight.
+            Overland Remodeling and Builders helps Pacific Palisades homeowners turn a complicated rebuild into a clear design-build plan. Work directly with Shahar and an owner-led team that can help organize next steps, coordinate planning, support permitting, guide finish decisions, and manage construction with personal oversight.
           </p>
           <div class="hero-actions">
             <a class="btn-primary" href="#consult">Schedule a Free Rebuild Consultation</a>
           </div>
+          <p class="hero-trust-line"><strong>Free consultation</strong> for Pacific Palisades homeowners rebuilding after the fire.</p>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
@@ -1067,8 +1178,8 @@
               <div class="stat-label">Local remodeling and rebuild experience</div>
             </div>
             <div class="stat-card">
-              <div class="stat-value">$0</div>
-              <div class="stat-label">Initial rebuild consultation</div>
+              <div class="stat-value">Free</div>
+              <div class="stat-label">No-obligation rebuild consultation</div>
             </div>
           </div>
         </div>
@@ -1114,6 +1225,15 @@
               <h3>Ready to Build</h3>
               <p>You already have plans or direction and need the right contractor to manage the construction.</p>
             </article>
+          </div>
+
+          <div class="inline-cta reveal">
+            <div>
+              <p class="inline-cta-label">Not sure where to start?</p>
+              <h3>Schedule a free rebuild consultation.</h3>
+              <p>Tell us what stage you are in and we will help you understand the most practical next step before design, permits, pricing, or construction move forward.</p>
+            </div>
+            <a class="btn-primary" href="#consult">Schedule Consultation</a>
           </div>
         </div>
       </section>
@@ -1183,7 +1303,7 @@
           <div class="scope-note reveal">
             <h3>We help you organize the rebuild path.</h3>
             <p>
-              Overland helps homeowners think through layout goals, design direction, site considerations, permit coordination, material priorities, and the construction sequence. We are not an insurance adjuster and we do not provide insurance claim services. Our role is to help you move from uncertainty into a practical design-build plan for the home you want to rebuild.
+              Overland helps homeowners think through layout goals, design direction, site considerations, permit coordination, material priorities, and the construction sequence. We do not act as an insurance adjuster or provide insurance claim services. Our role is to help you organize the design-build, permitting, budgeting, and construction path for the home you want to rebuild.
             </p>
           </div>
         </div>
@@ -1329,6 +1449,29 @@
               <h3>What fire-resistant materials should we consider?</h3>
               <p>Depending on the property and requirements, the rebuild may involve Class A roofing, ember-resistant vents, dual-pane tempered windows, ignition-resistant or non-combustible exterior materials, and other wildfire-conscious construction details.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="testimonial-section" id="client-review">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Client Review</p>
+            <h2>What a client says about working with Overland.</h2>
+            <div class="section-rule"></div>
+            <p class="section-copy">
+              For a major rebuild, trust matters. This client review reflects the kind of direct communication, personal oversight, and organized process homeowners can expect from Overland.
+            </p>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <blockquote>
+              <strong>“Team Overland is the standard.”</strong>
+              “Living outside of California, I wanted to get my mother's house remodeled and I needed to find a company I could trust. After a bunch of interviews I found Overland R&amp;B. Simply put: AWESOME! They went far and above anything I could have expected. Knowing I no longer live in Los Angeles, they helped move and store things for my mother to help prepare for the work. Afterwards, they brought things back and really made things so easy. The work is so awesome. No one can believe their eyes when they see it. They took an 80 something year old home and completely transformed it. My mom is so excited and I am so confident knowing she is in a place that safe and secure thanks to Overland R&amp;B. Thanks Guys!”
+            </blockquote>
+            <cite>— Britt L., Los Angeles Home Remodel Client</cite>
           </div>
         </div>
       </section>
