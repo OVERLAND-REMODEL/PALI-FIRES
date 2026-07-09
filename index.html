@@ -108,6 +108,17 @@
       gap: 18px;
     }
 
+    .nav-phone {
+      color: var(--ov-black);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .nav-phone:hover { color: var(--ov-gold); }
+
 
     .nav-cta,
     .btn-primary,
@@ -828,6 +839,29 @@
       flex: 0 0 auto;
     }
 
+    .form-phone {
+      margin-top: 34px;
+      padding: 24px 28px;
+      background: rgba(244, 239, 230, 0.06);
+      border-left: 3px solid var(--ov-gold);
+      color: var(--ov-soft);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .form-phone a {
+      display: block;
+      margin-top: 6px;
+      color: var(--ov-cream);
+      text-decoration: none;
+      font-family: var(--ov-serif);
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .form-phone a:hover { color: var(--ov-gold); }
+
 
     .form-right {
       padding: 86px 80px 86px 64px;
@@ -1141,6 +1175,7 @@
         <small>And Builders</small>
       </a>
       <div class="nav-actions">
+        <a class="nav-phone" href="tel:+13106945989">310.694.5989</a>
         <a class="nav-cta" href="#consult">Free Consultation</a>
       </div>
     </nav>
@@ -1492,6 +1527,11 @@
             <li>No pressure, no obligation</li>
           </ul>
 
+          <p class="form-phone">
+            Prefer to talk? Call Shahar directly:
+            <a href="tel:+13106945989">310.694.5989</a>
+          </p>
+
         </div>
 
         <div class="form-right">
@@ -1626,6 +1666,27 @@
     const form = document.getElementById('rebuildForm');
     const formMessage = document.getElementById('formMessage');
     const submitButton = document.getElementById('submitButton');
+
+    // Track the first interaction with the form (fires once per page view)
+    let formStarted = false;
+    if (form) {
+      form.addEventListener('focusin', () => {
+        if (formStarted) return;
+        formStarted = true;
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { 'send_to': 'AW-998574948/HIVlCPzYk80cEOSWlNwD' });
+        }
+      });
+    }
+
+    // Track clicks on phone links
+    document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { 'send_to': 'AW-998574948/I--fCPnYk80cEOSWlNwD' });
+        }
+      });
+    });
 
     function encodeFormData(formElement) {
       return new URLSearchParams(new FormData(formElement)).toString();
